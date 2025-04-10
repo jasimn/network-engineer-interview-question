@@ -267,11 +267,109 @@ Border Gateway Protocol (BGP) is the routing protocol of the Internet. Key featu
 - Small networks (use static routes/default gateway).  
 - Low-resource devices (BGP is CPU/memory intensive).  
 
----
+--------------------------------------------------------------------------------------------------------
+# Palo Alto Firewall Interview Questions & Answers
 
-> **Pro Tip:** For CCNA, focus on BGP basics (eBGP/iBGP, path attributes like `AS_PATH`, `LOCAL_PREF`).  
-> **Command Cheatsheet:**  
-> - `show ip bgp summary` – Verify BGP peers.  
-> - `network 192.168.1.0 mask 255.255.255.0` – Advertise a network in BGP.
+## 1. What are the various deployment modes in Palo Alto?
+In Palo Alto, you can choose from four deployment models: Tap mode, Virtual (V-Wire), Layer 2, and Layer 3.  
+- **Tap mode deployment option**: Allows monitoring of traffic flow using a tap or switch SPAN/mirror port without infrastructure upgrades. Traffic is observed, not managed, as no security rules apply. Configure SPAN source/destination ports and enable Tap mode, assigning the tap interface to a security zone.  
+- **Virtual (V-Wire) Deployment option**: Installs the firewall passively on a network segment, enabling traffic control and monitoring. Supports App-ID, User-ID, Content-ID, NAT, and decryption via Virtual Wire interfaces.  
+- **Layer 2 deployment option**: Configures multiple interfaces in VLAN or virtual-switch mode, switching between network segments. Enhances security and visibility by analyzing traffic based on policies.  
+- **Layer 3 deployment option**: Routes traffic between interfaces, each with its own IP address and security zone. The most common mode, directing traffic across multiple interfaces.
+
+## 2. Is Palo Alto a stateful firewall?
+Yes, Palo Alto is a stateful firewall. It tracks all traffic passing through it, matching it against sessions and cybersecurity policies to maintain state awareness.
+
+## 3. What is the function of Palo Alto Focus?
+Palo Alto Focus is a cloud-based threat intelligence service that identifies critical attacks and enables action without additional resources, enhancing threat response efficiency.
+
+## 4. What is the Application Command Center (ACC)?
+The Application Command Center (ACC) provides visibility into traffic patterns and actionable threat insights from firewall network logs.
+
+## 5. Which command is used to check the firewall policy matching in Palo Alto?
+To check firewall policy matching, use: Open the Palo Alto web browser > go to Test Security > Policy > Match from trust to untrust destination.
+
+## 6. What are the various states of the HA Firewall?
+HA Firewalls operate in:  
+- **Active-Active**: Both firewalls handle traffic simultaneously.  
+- **Active-Passive**: One firewall is active, the other on standby.  
+- **Standby**: A backup state for failover readiness.  
+- **Failed**: Indicates a malfunction requiring intervention. These states ensure redundancy, failover, load balancing, and continuous security.
+
+## 7. What are the various URL filtering options?
+URL filtering options include:  
+- **Allow**: Permits access.  
+- **Block**: Denies access.  
+- **Monitor**: Logs access without blocking.  
+- **Warn**: Alerts users before proceeding.  
+- **Category-based restrictions**: Limits access by URL categories. These enhance security and enforce compliance.
+
+## 8. What is the zone protection profile?
+The zone protection profile safeguards against:  
+- **Flood attacks**: SYN, ICMP, UDP, etc.  
+- **Reconnaissance**: Port and host sweeps.  
+- **Packet-based attacks**: Large ICMP and ICMP fragments. It ensures comprehensive network protection.
+
+## 9. What are the types of protection used in Palo Alto?
+Major protection types include:  
+- **Zone protection profile**: Covers floods, reconnaissance, and packet-based attacks.  
+- **Network tab protection**: Includes network profiles and zone protections configured under the Network tab.
+
+## 10. What is the difference between virtual routers and virtual systems?
+- **Virtual routers**: Layer 3 routing mechanisms within a firewall, managing routes to subnets via static or dynamic protocols (e.g., OSPF). Multiple VRs can exist, each with unique routes, and can be shared across VSYS.  
+- **Virtual systems**: Logical firewall instances within a single device, each with its own interfaces, security policies, and admins. Supports virtual wire, Layer 2, or Layer 3 modes, enabling logical network separation.
+
+## 11. What is a U-turn NAT?
+A U-turn NAT allows users to access internal DMZ servers using the servers’ external IP addresses, creating a logical path for internal-to-external communication.
+
+## 12. What is WAF (Web Application Firewall)?
+A Web Application Firewall (WAF) monitors and secures web applications by filtering traffic between the Internet and the app. Features include:  
+- Compensating for insecure coding.  
+- Customizable behavior monitoring to block deviations.
+
+## 13. What is Palo Alto’s architecture like?
+Palo Alto’s next-generation firewalls use Single-Pass Parallel Processing (SP3) architecture, combining:  
+- **Single Pass software**: Processes traffic once for all functions.  
+- **Parallel Processing hardware**: Enhances throughput and reduces latency. This delivers high-performance security with low latency.
+
+## 14. What are the benefits of Panorama in Palo Alto?
+Panorama offers:  
+- Centralized configuration and deployment.  
+- Distributed administration for delegated firewall management.  
+- Aggregated logging, reporting, and analysis.  
+- Graphical network visualization.  
+- Centralized traffic and security oversight.
+
+## 15. What is the meaning of endpoint security?
+Endpoint security protects devices (e.g., PCs, laptops, smartphones, servers, IoT) connected to a network from cyber threats and unauthorized access.
+
+## 16. What are the different types of linkages used to establish HA or the HA introduction?
+HA linkages include:  
+- **HA1 (Control link)**: Manages synchronization.  
+- **HA2 (Datalink)**: Transfers session data.  
+- **Backup links**: Provide redundancy.  
+- **Packet forwarding links**: Enable traffic continuity.
+
+## 17. Which virtualization platforms fully support Palo Alto network deployments?
+The VM-Series supports:  
+- OpenStack, VMware, Cisco ACI, AWS, Google Cloud Platform, public/private clouds.
+
+## 18. What is the default IP address, login, and password for Palo Alto Firewall’s administration port?
+- **IP Address**: 192.168.1.1  
+- **Username**: admin  
+- **Password**: admin
+
+## 19. That’s it! There are some Important Palo Alto firewall Interview Questions
+These basic, intermediate, and advanced questions are ideal for Palo Alto interview preparation.
+
+## 20. What are the different types of media supported by Palo Alto firewall support?
+Supported media include:  
+- Ethernet (copper/fiber), SFP/SFP+ modules, wireless via VPNs, SD-WAN, USB for logs, cloud connections (AWS, Azure, GCP), and virtual instances for hybrid environments.
+
+## 21. What is the advantage of Palo Alto SP3 architecture?
+SP3 enhances efficiency by:  
+- Processing traffic in a single pass, reducing latency.  
+- Integrating security functions in parallel for high throughput.  
+- Supporting scalable, real-time threat prevention with minimal performance impact.
 
 
