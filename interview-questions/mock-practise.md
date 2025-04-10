@@ -48,92 +48,180 @@ TLS (Transport Layer Security) and SSL (Secure Sockets Layer) are cryptographic 
 ---
 
 ## Network Fundamentals
+### Q1. What is the OSI model, and why is it important?
+The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a communication system into seven layers: Physical, Data Link, Network, Transport, Session, Presentation, and Application. It is important because it helps network engineers understand how different protocols and technologies interact, troubleshoot issues, and design networks effectively.
 
-### 11. Do ARP requests leave the local network?
+### Q2. What is the difference between a router and a switch?
+- **Router**: Operates at Layer 3 (Network Layer), connects different networks, routes traffic between them, and makes decisions based on IP addresses.  
+- **Switch**: Operates at Layer 2 (Data Link Layer), connects devices within the same network, and forwards data based on MAC addresses.
+
+### Q3. What is a subnet mask, and how does it work?
+A subnet mask is a 32-bit number used to divide an IP address into network and host portions. It determines which part of the IP address identifies the network and which identifies the device. For example, in 192.168.1.0/24, the /24 indicates that the first 24 bits are the network portion.
+
+## 2. Protocols and Technologies
+
+### Q4. Explain the difference between TCP and UDP.
+- **TCP (Transmission Control Protocol)**: Connection-oriented, reliable, ensures data delivery with error checking and retransmission. Used for applications like web browsing and email.  
+- **UDP (User Datagram Protocol)**: Connectionless, faster, does not guarantee delivery. Used for real-time applications like video streaming and VoIP.
+
+### Q5. What is DHCP, and how does it work?
+DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses and network configuration parameters (e.g., subnet mask, gateway, DNS) to devices on a network. It works via a four-step process: Discover, Offer, Request, and Acknowledgment (DORA).
+
+### Q6. What is NAT, and why is it used?
+NAT (Network Address Translation) maps private IP addresses to a public IP address, allowing multiple devices to share a single public IP. It conserves IPv4 addresses and enhances security by hiding internal IP addresses from external networks.
+
+## 3. Troubleshooting
+
+### Q7. How would you troubleshoot a network connectivity issue?
+1. Check physical connections (cables, ports, LEDs).  
+2. Verify IP configuration using `ipconfig` (Windows) or `ifconfig` (Linux).  
+3. Ping the default gateway to check local connectivity.  
+4. Ping an external IP (e.g., 8.8.8.8) to check internet access.  
+5. Use `tracert` or `traceroute` to identify where the connection fails.  
+6. Check firewall or ACL settings for restrictions.
+
+### Q8. What is a MAC address, and how is it different from an IP address?
+A MAC (Media Access Control) address is a unique identifier assigned to a network interface card (NIC) at the hardware level, operating at Layer 2 for communication within the same network. An IP address operates at Layer 3 and is used for communication across different networks.
+
+## 4. Routing and Switching
+
+### Q9. What is the difference between static and dynamic routing?
+- **Static routing**: Manually configured routes on a router; simple and secure but not scalable for large networks.  
+- **Dynamic routing**: Uses protocols like OSPF, EIGRP, or BGP to automatically update routing tables based on network changes; scalable but requires more configuration and resources.
+
+### Q10. What is VLAN, and why is it used?
+A VLAN (Virtual Local Area Network) is a logical segmentation of a network into smaller broadcast domains. It improves network performance, enhances security, and simplifies management by grouping devices based on function rather than physical location.
+
+## 5. Security
+
+### Q11. What is a firewall, and how does it work?
+A firewall is a network security device that monitors and controls incoming and outgoing traffic based on predefined security rules. It can be hardware- or software-based and operates at Layer 3 (Network) or Layer 7 (Application).
+
+### Q12. What is the difference between IDS and IPS?
+- **IDS (Intrusion Detection System)**: Monitors network traffic for suspicious activity and alerts administrators but does not act.  
+- **IPS (Intrusion Prevention System)**: Actively blocks or mitigates threats in real-time.
+
+## 6. Practical Scenarios
+
+### Q13. How would you configure a new network from scratch?
+1. Plan the network topology and IP addressing scheme.  
+2. Configure routers, switches, and firewalls.  
+3. Set up VLANs and inter-VLAN routing if needed.  
+4. Implement DHCP and DNS services.  
+5. Configure security policies (ACLs, firewalls).  
+6. Test connectivity and troubleshoot as needed.
+
+### Q14. What would you do if a user cannot connect to the internet?
+1. Verify the user’s IP configuration.  
+2. Check if the user can ping the default gateway.  
+3. Test DNS resolution by pinging a domain name (e.g., google.com).  
+4. Inspect firewall or proxy settings.  
+5. Check for network outages or misconfigurations.
+
+## 7. Advanced Topics
+
+### Q15. What is BGP, and how does it work?
+BGP (Border Gateway Protocol) is a path-vector routing protocol that exchanges routing information between autonomous systems (AS) on the internet. It uses attributes like AS_PATH and NEXT_HOP to determine the best path for data.
+
+### Q16. What is MPLS, and why is it used?
+MPLS (Multiprotocol Label Switching) speeds up and shapes traffic flows in a network using labels for forwarding decisions, reducing complex routing lookups. It’s used in WANs for efficient traffic engineering.
+
+### Q17. What is SDN, and how does it differ from traditional networking?
+SDN (Software-Defined Networking) separates the control plane (decision-making) from the data plane (forwarding), centralizing management for dynamic, programmable configurations. Traditional networking has each device operate independently.
+
+## 8. Behavioral Questions
+
+### Q18. Describe a time when you resolved a complex network issue.
+*(Tailor your answer to your experience)*  
+Example: "I once resolved an issue where users in a remote office couldn’t access the corporate network. After analyzing the VPN configuration, I discovered a misconfigured ACL blocking traffic. I corrected the ACL, tested the connection, and documented the solution for future reference."
+
+### Q19. How do you stay updated with the latest networking technologies?
+
+### 20. Do ARP requests leave the local network?
 - **Answer:** **No**, ARP is confined to the local broadcast domain (Layer 2).
 
-### 12. What is ICMP? At which OSI layer?
+### 21. What is ICMP? At which OSI layer?
 - **Answer:** **Internet Control Message Protocol (ICMP)** operates at **Layer 3 (Network Layer)** (e.g., used by `ping`).
 
-### 13. What is MTU?
+### 22. What is MTU?
 - **Answer:** **Maximum Transmission Unit (MTU)** is the largest packet size (in bytes) allowed on a network path.
 
-### 14. Which wavelength is associated with multimode fiber telecom equipment?
+### 23. Which wavelength is associated with multimode fiber telecom equipment?
 - **Answer:** **b. 850 nm** (also 1300 nm; single-mode uses 1310/1550 nm).
 
-### 15. Which protocol does **not** use UDP as transport?
+### 24. Which protocol does **not** use UDP as transport?
 - **Answer:**  
   - ✅ **DNS** (can use UDP/TCP)  
   - ✅ **DHCP** (UDP)  
   - ❌ **SNMP** (uses UDP; your answer was incorrect).  
 
-### 16. Which command identifies TCP connections?
+### 25. Which command identifies TCP connections?
 - **Answer:** **`netstat -t`** (or `ss -t` on Linux).
 
-### 17. Which command displays IP address?
+### 26. Which command displays IP address?
 - **Answer:** **`ipconfig`** (Windows) / `ifconfig` (Linux).
 
-### 18. What is a MAC address?
+### 27. What is a MAC address?
 - **Answer:** A **hardware address** (48-bit) assigned to a network interface (e.g., `00:1A:2B:3C:4D:5E`).
 
-### 19. What format is `00:01:02:03:04:05`?
+### 28. What format is `00:01:02:03:04:05`?
 - **Answer:** **Colon-Hexadecimal** (also accepts hyphenated or dot notation).
 
-### 20. Ping operates at which OSI layer?
+### 29. Ping operates at which OSI layer?
 - **Answer:** **Layer 3 (Network Layer)** (uses ICMP).
 
 ---
 
 ## IP Addressing & Subnetting
 
-### 21. How to list all open TCP ports on localhost?
+### 30. How to list all open TCP ports on localhost?
 - **Answer:**  
   - Linux: `netstat -tuln` or `ss -tuln`  
   - Windows: `netstat -ano | findstr LISTENING`  
 
-### 22. What are listening ports?
+### 31. What are listening ports?
 - **Answer:** Ports actively accepting incoming connections (e.g., `0.0.0.0:22` for SSH).
 
-### 22a. Command to list all open ports on localhost?
+### 32a. Command to list all open ports on localhost?
 - **Answer:** `netstat -tuln` (Linux) or `netstat -ano` (Windows).
 
-### 23. Class C IP address `192.168.0.0` – how many hosts?
+### 33. Class C IP address `192.168.0.0` – how many hosts?
 - **Answer:** **254 hosts** (2^8 – 2 = 254; excludes network/broadcast).
 
-### 24. Which IP cannot be routed?
+### 34. Which IP cannot be routed?
 - **Answer:** **10.255.200.200** (private IP; non-routable on the public internet).
 
-### 25. Is `196.16.144.99/23` a valid host address?
+### 35. Is `196.16.144.99/23` a valid host address?
 - **Answer:**  
   - **Network:** `196.16.144.0`  
   - **Broadcast:** `196.16.145.255`  
   - **Usable Hosts:** 510 (2^9 – 2).  
 
-### 26. Is `196.16.1.103/26` a broadcast address?
+### 36. Is `196.16.1.103/26` a broadcast address?
 - **Answer:**  
   - **Network:** `196.16.1.64`  
   - **Broadcast:** `196.16.1.127` → **No**, `.103` is a host address.  
 
-### 27. How to trace the path to a domain?
+### 37. How to trace the path to a domain?
 - **Answer:** **`tracert` (Windows) / `traceroute` (Linux)**.
 
-### 28. Given `192.168.3.6/22`:  
+### 38. Given `192.168.3.6/22`:  
    - **Network:** `192.168.0.0`  
    - **Broadcast:** `192.168.3.255`  
    - **1st Host:** `192.168.0.1`  
    - **Last Host:** `192.168.3.254`  
 
-### 29. Non-routable IP example?
+### 39. Non-routable IP example?
 - **Answer:** **`172.16.0.1`** (private range; rejected by public routers).
 
-### 30. Command to resolve routing table?
+### 40. Command to resolve routing table?
 - **Answer:** **`route -n` (Linux) / `route print` (Windows)**.
 
 ---
 
 ## Security
 
-### 31. Safest way to send data to the cloud?
+### 41. Safest way to send data to the cloud?
 - **Answer:** **a. VPN** (encrypts all traffic) and **b.
 **--------------------------------------------------------------**
 
