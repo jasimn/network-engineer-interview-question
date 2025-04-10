@@ -1,4 +1,4 @@
-# Difference Between TLS and SSL
+# What is the difference Between TLS and SSL?
 
 ## Overview
 TLS (Transport Layer Security) and SSL (Secure Sockets Layer) are cryptographic protocols for securing network communications. TLS is the modern, secure replacement for the deprecated SSL.
@@ -12,7 +12,7 @@ TLS (Transport Layer Security) and SSL (Secure Sockets Layer) are cryptographic 
 | **Handshake**| Slower                    | Faster (especially TLS 1.3)         |
 | **Usage**    | No longer supported       | Required for modern security        |
 
-## Key Takeaways
+## Notes:
 - **SSL is obsolete** and insecure (all versions should be disabled).
 - **TLS 1.2 or 1.3** is the current security standard.
 - TLS offers stronger encryption, faster handshakes, and better vulnerability protection.
